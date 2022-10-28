@@ -41,13 +41,7 @@ const httpRequestListener = function (request, response) {
         const post = JSON.parse(body);
 
         posts.push({
-          userId: post.id,
-          userName: post.name,
-          postingId: post.postingId,
-          postingTitle: post.postingTitle,
-          postingContent: post.postingContent,
-        });
-        response.end(JSON.stringify({ post: posts }));
+
       });
     }
   } else if (method === "GET") {
