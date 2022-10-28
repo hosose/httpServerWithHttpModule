@@ -41,12 +41,14 @@ const httpRequestListener = function (request, response) {
         const post = JSON.parse(body);
 
         posts.push({
-
+          userId: post.id,
+          userName: post.name,
+          postingId: post.postingId,
+          postingTitle: post.postingTitle,
+          postingContent: post.postingContent,
+        });
+        response.end(JSON.stringify({ message: "postCreated" }));
       });
-    }
-  } else if (method === "GET") {
-    if (url === "/users/postlist") {
-      response.end(JSON.stringify({ data: posts }));
     }
   }
 };
