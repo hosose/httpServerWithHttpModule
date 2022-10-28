@@ -54,7 +54,7 @@ const httpRequestListener = function (request, response) {
   }
 };
 
-server.on("requesnodet", httpRequestListener);
+server.on("request", httpRequestListener);
 
 const IP = "127.0.0.1";
 const PORT = 8000;
