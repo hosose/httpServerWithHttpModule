@@ -47,14 +47,10 @@ const httpRequestListener = function (request, response) {
           postingTitle: post.postingTitle,
           postingContent: post.postingContent,
         });
-        response.end(JSON.stringify({ post: posts }));
+        response.end(JSON.stringify({ message: 'postCreated' }));
       });
     }
-  } else if (method === "GET") {
-    if (url === "/users/postlist") {
-      response.end(JSON.stringify({ data: posts }));
-    }
-  }
+  } 
 };
 
 server.on("request", httpRequestListener);
