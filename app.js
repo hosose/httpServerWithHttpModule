@@ -3,7 +3,7 @@ const server = http.createServer();
 
 const users = [];
 const posts = [];
-
+const p = [];
 const httpRequestListener = function (request, response) {
   const { url, method } = request;
 
