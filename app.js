@@ -3,7 +3,7 @@ const server = http.createServer();
 
 const users = [];
 const posts = [];
-const p = [];
+
 const httpRequestListener = function (request, response) {
   const { url, method } = request;
 
@@ -38,8 +38,11 @@ const httpRequestListener = function (request, response) {
         const user = JSON.parse(body);
 
         posts.push({
-          image: user.image,
-          post: user.post,
+          userId: user.id,
+          userName: user.name,
+          postingId: user.postingId,
+          postingTitle: user.postingTitle,
+          postingContent: user.postingContent,
         });
 
         response.end(JSON.stringify({ message: "postCreated" }));
