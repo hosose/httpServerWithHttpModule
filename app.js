@@ -44,14 +44,17 @@ const httpRequestListener = function (request, response) {
           postingTitle: user.postingTitle,
           postingContent: user.postingContent,
         });
-
         response.end(JSON.stringify({ message: "postCreated" }));
       });
+    }
+  } else if (method === "GET") {
+    if (url === "/users/postlist") {
+      response.end(JSON.stringify({ data: posts }));
     }
   }
 };
 
-server.on("request", httpRequestListener);
+server.on("requesnodet", httpRequestListener);
 
 const IP = "127.0.0.1";
 const PORT = 8000;
