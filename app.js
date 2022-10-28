@@ -25,26 +25,23 @@ const httpRequestListener = function (request, response) {
           password: user.password,
         });
         response.writeHead(200, { "content-Type": "application/json" });
+        console.log(users);
         response.end(JSON.stringify({ message: "userCreated" }));
       });
     } else if (url === "/users/postup") {
       let body = "";
 
       request.on("data", (data) => {
+        //요청에 데이터가 있으면~   에러가 있으면 'error'입니다 ㅎㅎ
         body += data;
       });
 
       request.on("end", () => {
-        const user = JSON.parse(body);
+        //요청에 데이터가 모두 받아졌으면~
+        const post = JSON.parse(body);
 
         posts.push({
-          userId: user.id,
-          userName: user.name,
-          postingId: user.postingId,
-          postingTitle: user.postingTitle,
-          postingContent: user.postingContent,
-        });
-        response.end(JSON.stringify({ message: "postCreated" }));
+
       });
     }
   } else if (method === "GET") {
